@@ -1,0 +1,15 @@
+version: "3"
+services:
+    nginx:
+        image: nginx:latest
+        volumes:
+            - ./nginx.conf:/etc/nginx/nginx.conf
+            - ./api-gateway.conf:/etc/nginx/api-gateway.conf
+        ports: 
+            - "8000:8000"
+        networks: 
+            - servers
+
+networks:
+    servers:
+        external: true
